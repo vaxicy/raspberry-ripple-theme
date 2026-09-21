@@ -13,7 +13,6 @@ Chrome-painted UI colors are derived or hardcoded and marked with their source.
 """
 from pathlib import Path
 import base64
-import colorsys
 import json
 from PIL import Image
 from playwright.sync_api import sync_playwright
@@ -30,28 +29,16 @@ def color(k):
     return '#%02X%02X%02X' % tuple(C[k])
 
 
-def hx(rgb):
-    return '#%02X%02X%02X' % tuple(rgb)
-
-
-def chrome_tint(rgb, lightness):
-    """Chrome paints the new-tab Google mark and the shortcut tiles itself.
-
-    It keeps the hue and saturation of `ntp_background` and clamps lightness for
-    contrast (very light tinted background -> L~0.66-0.69, near-neutral -> 0.66).
-    The values below follow that rule; swap in pixel-sampled values from a real
-    install once one is captured.
-    """
-    r, g, b = (v / 255 for v in rgb)
-    h, _l, s = colorsys.rgb_to_hls(r, g, b)
-    return tuple(int(round(v * 255)) for v in colorsys.hls_to_rgb(h, lightness, s))
-
-
 # ---------------------------------------------------------------------------
 # Colors NOT controlled by the theme: painted by Chrome itself.
+#
+# Pixel-sampled from a real install (1080x643 capture, 2026-09-21). Chrome keeps
+# the hue and saturation of `ntp_background` (#FCF8FB -> H315 S40%) and clamps the
+# lightness for contrast. Per chrome-theme-google-logo-color-RULE the sampled value
+# is ground truth; the naive L=0.66 formula gave #CB86BA, which renders too dark.
 # ---------------------------------------------------------------------------
-LOGO = hx(chrome_tint(C['ntp_background'], 0.66))   # new tab Google mark
-TILE = hx(chrome_tint(C['ntp_background'], 0.78))   # shortcut circle fill
+LOGO = '#CF8FBF'                                    # new-tab Google mark (real L~0.69)
+TILE = '#DEB2D3'                                    # shortcut circle fill (real L~0.78)
 OMNI_BG = color('omnibox_background')               # address bar fill
 UI_TEXT = '#5F6368'         # placeholder / shortcut label grey
 UI_ICON = '#444746'         # mic, bookmark, apps glyphs
@@ -91,8 +78,8 @@ svg{display:block}
 .tabstrip{height:32px;background:var(--frame);display:flex;align-items:flex-end;padding-left:33px;position:relative}
 .chev{position:absolute;left:14px;top:13px}
 .tab{width:168px;height:27px;border-radius:9px 9px 0 0;margin-right:7px;padding:0 10px 0 30px;display:flex;align-items:center;
-     font-size:11.5px;color:var(--sub);position:relative;outline:1px solid rgba(255,255,255,.34);outline-offset:-1px}
-.tab.on{background:var(--toolbar);outline:0;color:var(--ink)}
+     font-size:11.5px;color:var(--sub);position:relative;background:var(--tabbg)}
+.tab.on{background:var(--toolbar);color:var(--ink)}
 .tab i{position:absolute;left:11px;top:7px;width:12px;height:12px;border-radius:3px;background:rgba(81,39,64,.20)}
 .tab.on i{background:var(--logoc)}
 .tab .x{margin-left:auto;opacity:.75}
@@ -312,7 +299,7 @@ JOBS = [
     ('promo-1400x560', 1400, 560, 1400, 560, marquee),
 ]
 
-print(f'Chrome-derived new tab mark {LOGO}, shortcut tiles {TILE} (from ntp_background {color("ntp_background")})')
+print(f'Chrome-painted new tab mark {LOGO}, shortcut tiles {TILE} (pixel-sampled; ntp_background {color("ntp_background")})')
 
 with sync_playwright() as p:
     engine = p.chromium.launch(headless=True)

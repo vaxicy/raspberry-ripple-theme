@@ -7,7 +7,7 @@
 <p align="center">A light Chrome theme built around raspberry pink, soft plum text, and a pale new tab page.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Chrome%20Theme-CB86BA?logo=googlechrome" alt="Chrome theme">
+  <img src="https://img.shields.io/badge/Chrome%20Theme-CF8FBF?logo=googlechrome" alt="Chrome theme">
   <img src="https://img.shields.io/badge/license-Non--Commercial-lightgrey" alt="License">
 </p>
 
@@ -30,10 +30,10 @@ Each surface is a flat, single solid color, so the interface keeps its calm whil
 
 ## Chrome UI Notes
 
-A few parts of the browser are painted by Chrome itself rather than by the theme manifest. The store artwork follows what Chrome renders after installing this theme:
+A few parts of the browser are painted by Chrome itself rather than by the theme manifest. The store artwork follows what Chrome renders after installing this theme, with these two colors pixel-sampled from a real install:
 
-- **Google mark on the new tab page:** with `ntp_logo_alternate` enabled Chrome draws it as a single flat color derived from the new tab background. Here it reads as soft raspberry `#CB86BA`.
-- **Shortcut tiles:** Chrome tints the round new-tab shortcut buttons from the same background, rendering them as pale pink `#DDB0D2`.
+- **Google mark on the new tab page:** with `ntp_logo_alternate` enabled Chrome draws it as a single flat color derived from the new tab background, keeping that background's hue and saturation and clamping the lightness. It renders as soft raspberry `#CF8FBF`.
+- **Shortcut tiles:** Chrome tints the round new-tab shortcut buttons from the same background, rendering them as pale pink `#DEB2D3`.
 - **Window buttons:** Chrome keeps the minimize, maximize, and close glyphs dark against the raspberry frame.
 - **Address bar:** the omnibox keeps the white background declared by the theme, which separates it from the petal-pink toolbar.
 
