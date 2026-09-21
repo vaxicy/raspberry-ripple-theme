@@ -83,6 +83,18 @@ python3 scripts/generate-logo.py final waves light
 python3 scripts/generate-references.py
 ```
 
+## Packaging
+
+`python3 scripts/pack_store.py` builds the upload-ready Chrome Web Store zip into
+`dist/raspberry-ripple-theme-<version>.zip` and mirrors the same file to the
+default project folder (`D:\迅雷下载\vibe coding\`). The script self-verifies that
+`manifest.json` sits at the zip root and that the mirror matches byte for byte.
+
+The zip holds only the theme body — `manifest.json`, `logo/logo.png`, and this
+`README.md`. Store screenshots, promo tiles, the `scripts/` generators, and local
+files (`.codebuddy/`, `.gitignore`) stay out of the package, since the Web Store
+uploads those assets separately on the listing form.
+
 ## License
 
 Non-Commercial License — personal use is permitted, commercial use requires permission.
