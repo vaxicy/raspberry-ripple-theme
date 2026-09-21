@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><style>:root{
+  --frame:#D790BB;
+  --toolbar:#F6F0F4;
+  --tabbg:#EDD7E7;
+  --milk:#FCF8FB;
+  --ink:#512740;
+  --body:#361C2C;
+  --sub:#604354;
+  --icon:#69495C;
+  --bookmark:#69495C;
+  --link:#794463;
+  --omni-bg:#FFFFFF;
+  --logoc:#CB86BA;
+  --tile:#DDB0D2;
+  --ui-text:#5F6368;
+  --ui-icon:#444746;
+  --pill-bg:#202124;
+  --pill-fg:#8AB4F8;
+}
+*{box-sizing:border-box}
+body{margin:0;overflow:hidden;font-family:Arial,'Helvetica Neue',sans-serif;background:var(--milk);color:var(--body)}
+.window{width:1080px;height:675px;background:var(--milk);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.row{display:flex;align-items:center;flex:0 0 auto}
+svg{display:block}
+
+/* ---- tab strip (frame colour) ---- */
+.tabstrip{height:32px;background:var(--frame);display:flex;align-items:flex-end;padding-left:33px;position:relative}
+.chev{position:absolute;left:14px;top:13px}
+.tab{width:168px;height:27px;border-radius:9px 9px 0 0;margin-right:7px;padding:0 10px 0 30px;display:flex;align-items:center;
+     font-size:11.5px;color:var(--sub);position:relative;outline:1px solid rgba(255,255,255,.34);outline-offset:-1px}
+.tab.on{background:var(--toolbar);outline:0;color:var(--ink)}
+.tab i{position:absolute;left:11px;top:7px;width:12px;height:12px;border-radius:3px;background:rgba(81,39,64,.20)}
+.tab.on i{background:var(--logoc)}
+.tab .x{margin-left:auto;opacity:.75}
+.tab .x svg{margin:0}
+.newtab{width:20px;height:20px;margin:0 0 4px 8px;display:flex;align-items:center;justify-content:center}
+.wbtns{margin-left:auto;margin-bottom:9px;margin-right:12px;display:flex;gap:24px}
+
+/* ---- toolbar ---- */
+.toolbar{height:32px;background:var(--toolbar);display:flex;align-items:center;gap:16px;padding:0 14px}
+.nav{display:flex;gap:15px;align-items:center}
+.omni{width:660px;height:28px;border-radius:14px;background:var(--omni-bg);display:flex;align-items:center;
+      padding:0 11px;gap:9px;font-size:12.5px;color:var(--ui-text);box-shadow:inset 0 0 0 1px rgba(81,39,64,.08)}
+.omni .ph{flex:1;white-space:nowrap;overflow:hidden}
+.tools{display:flex;gap:17px;align-items:center;margin-left:auto}
+
+/* ---- bookmark bar ---- */
+.bookmarks{height:32px;background:var(--toolbar);display:flex;align-items:center;gap:19px;padding:0 14px;
+           font-size:11.5px;color:var(--bookmark)}
+.bookmarks .sep{width:1px;height:14px;background:var(--bookmark);opacity:.35}
+.bm{display:flex;align-items:center;gap:6px}
+
+/* ---- new tab page ---- */
+.ntp{flex:1;position:relative;background:var(--milk)}
+.gtop{position:absolute;top:13px;right:12px;display:flex;align-items:center;gap:16px;font-size:12.5px;color:var(--ui-text)}
+.gtop span{padding-right:2px}
+.glogo{position:absolute;top:86.5px;left:0;right:0;text-align:center;font-family:'Google Sans','Product Sans',Arial,sans-serif;
+       font-size:66px;font-weight:500;letter-spacing:-2.8px;color:var(--logoc);line-height:1}
+.nsearch{position:absolute;top:187px;left:50%;margin-left:-264px;width:529px;height:40px;border-radius:20px;background:#FFFFFF;
+         box-shadow:0 1px 6px rgba(0,0,0,.14);display:flex;align-items:center;gap:13px;padding:0 14px 0 20px}
+.nsearch .ph{flex:1;font-size:15px;color:var(--ui-text);white-space:nowrap;overflow:hidden}
+.shortcuts{position:absolute;top:246px;left:0;right:0;display:flex;justify-content:center;gap:8px}
+.shortcut{width:112px;text-align:center;font-size:12px;color:var(--ui-text)}
+.shortcut .circle{width:33px;height:33px;border-radius:50%;background:var(--tile);margin:0 auto 14px;display:flex;align-items:center;justify-content:center}
+.shortcut .lbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.customize{position:absolute;right:12px;bottom:12px;height:24px;border-radius:12px;background:var(--pill-bg);color:var(--pill-fg);
+           display:flex;align-items:center;gap:6px;padding:0 12px;font-size:11.5px}
+
+/* ---- promo: 440x280 brand tile ---- */
+.tile{width:440px;height:280px;background:var(--frame);position:relative;overflow:hidden;text-align:center;color:var(--body)}
+.tile img{width:88px;height:88px;display:block;margin:26px auto 0;
+          filter:drop-shadow(0 5px 14px rgba(81,39,64,.20))}
+.tile h1{font-family:Georgia,serif;font-weight:normal;font-size:37px;margin:12px 0 0}
+.tile .kicker{font-size:12px;letter-spacing:5px;margin-top:8px;color:var(--ink)}
+.tile p{font-size:14px;margin:16px 0 0;color:var(--body)}
+.tile:after{content:'';position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--toolbar)}
+
+/* ---- promo: 1400x560 marquee ---- */
+.marquee{width:1400px;height:560px;background:var(--milk);position:relative;overflow:hidden;text-align:center;
+         border-top:8px solid var(--frame)}
+.marquee h1{font-family:Georgia,serif;font-weight:normal;font-size:47px;margin:26px 0 0;color:var(--ink)}
+.marquee p{font-size:17px;margin:9px 0 0;color:var(--ui-text)}
+.marquee .frame{position:absolute;top:139px;left:300px;width:800px;height:370px;overflow:hidden;border:2px solid var(--frame);
+                border-radius:16px;box-shadow:0 10px 30px rgba(81,39,64,.16)}
+.marquee .frame .window{transform:scale(.740741);transform-origin:top left}
+
+/* ---- screenshot 2: palette card ---- */
+/* neutral white page so the near-white new-tab card (#FCF8FB) reads as a card */
+.intro{width:1280px;height:800px;background:#FFFFFF;padding:66px 74px}
+.intro .kicker{font-size:12px;letter-spacing:4px;color:var(--link)}
+.intro h1{font-family:Georgia,serif;font-weight:normal;font-size:54px;margin:16px 0 0;color:var(--ink)}
+.intro .lead{font-size:21px;margin:14px 0 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+.card{height:190px;border-radius:18px;padding:26px;display:flex;flex-direction:column;justify-content:flex-end}
+.card strong{font-size:26px}
+.card span{font-size:15.5px;margin-top:9px}
+.intro .chips{font-size:16px;margin-top:32px;color:var(--ui-text)}
+</style><body><div class="intro"><div class="kicker">SOFT RASPBERRY PINK, EVERY LAYER</div><h1>Raspberry Ripple Theme</h1><p class="lead">Raspberry pink across the frame, with plum text that stays readable.</p><div class="cards"><div class="card" style="background:#D790BB;color:#361C2C;border:1px solid rgba(81,39,64,.16)"><strong>Raspberry Frame</strong><span>#D790BB · Window frame & tab strip</span></div><div class="card" style="background:#F6F0F4;color:#361C2C;border:1px solid rgba(81,39,64,.16)"><strong>Petal Toolbar</strong><span>#F6F0F4 · Toolbar, active tab & bookmarks</span></div><div class="card" style="background:#EDD7E7;color:#361C2C;border:1px solid rgba(81,39,64,.16)"><strong>Soft Pink</strong><span>#EDD7E7 · Inactive tabs</span></div><div class="card" style="background:#FCF8FB;color:#361C2C;border:1px solid rgba(81,39,64,.16)"><strong>Near White</strong><span>#FCF8FB · New tab page</span></div><div class="card" style="background:#512740;color:#FFFFFF;border:1px solid rgba(81,39,64,.16)"><strong>Deep Plum</strong><span>#512740 · Tab, toolbar & address-bar text</span></div><div class="card" style="background:#794463;color:#FFFFFF;border:1px solid rgba(81,39,64,.16)"><strong>Dusty Plum</strong><span>#794463 · Links on the new tab page</span></div></div><p class="chips">6 flat colours · Tuned contrast · Theme-only package</p></div></body></html>

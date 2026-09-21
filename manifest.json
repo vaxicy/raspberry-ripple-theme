@@ -1,0 +1,168 @@
+{
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "name": "Raspberry Ripple Theme",
+  "description": "Light and enchanting, perfect for creative tasks.",
+  "icons": {
+    "128": "logo/logo.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [
+        215,
+        144,
+        187
+      ],
+      "frame_inactive": [
+        215,
+        190,
+        206
+      ],
+      "toolbar": [
+        246,
+        240,
+        244
+      ],
+      "background_tab": [
+        237,
+        215,
+        231
+      ],
+      "tab_text": [
+        81,
+        39,
+        64
+      ],
+      "tab_background_text": [
+        96,
+        67,
+        84
+      ],
+      "toolbar_button_icon": [
+        105,
+        73,
+        92
+      ],
+      "button_background": [
+        242,
+        224,
+        234
+      ],
+      "omnibox_background": [
+        255,
+        255,
+        255
+      ],
+      "omnibox_text": [
+        81,
+        39,
+        64
+      ],
+      "bookmark_text": [
+        105,
+        73,
+        92
+      ],
+      "ntp_background": [
+        252,
+        248,
+        251
+      ],
+      "ntp_text": [
+        54,
+        28,
+        44
+      ],
+      "ntp_link": [
+        121,
+        68,
+        99
+      ],
+      "frame_incognito": [
+        207,
+        122,
+        173
+      ],
+      "frame_incognito_inactive": [
+        207,
+        177,
+        196
+      ],
+      "background_tab_inactive": [
+        237,
+        215,
+        231
+      ],
+      "background_tab_incognito": [
+        228,
+        194,
+        218
+      ],
+      "background_tab_incognito_inactive": [
+        237,
+        215,
+        231
+      ],
+      "tab_background_text_inactive": [
+        96,
+        67,
+        84
+      ],
+      "tab_background_text_incognito": [
+        96,
+        67,
+        84
+      ],
+      "tab_background_text_incognito_inactive": [
+        96,
+        67,
+        84
+      ],
+      "ntp_header": [
+        54,
+        28,
+        44
+      ],
+      "toolbar_text": [
+        105,
+        73,
+        92
+      ]
+    },
+    "tints": {
+      "buttons": [
+        0.889,
+        0.25,
+        0.953
+      ],
+      "frame": [
+        0.899,
+        0.47,
+        0.704
+      ],
+      "frame_inactive": [
+        0.893,
+        0.238,
+        0.794
+      ],
+      "frame_incognito": [
+        0.9,
+        0.47,
+        0.645
+      ],
+      "frame_incognito_inactive": [
+        0.894,
+        0.238,
+        0.753
+      ],
+      "background_tab": [
+        0.879,
+        0.379,
+        0.886
+      ]
+    },
+    "properties": {
+      "ntp_logo_alternate": 1
+    }
+  }
+}

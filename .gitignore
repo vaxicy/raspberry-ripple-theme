@@ -1,0 +1,6 @@
+.codebuddy/
+__pycache__/
+*.pyc
+Cached Theme.pak
+commit_msg.txt
+store-assets/icon-candidates/
